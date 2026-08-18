@@ -4,7 +4,7 @@
 
 | Testing | [![CI](https://github.com/ChiaChunL/homoppi/actions/workflows/ci.yml/badge.svg)](https://github.com/ChiaChunL/homoppi/actions/workflows/ci.yml) |
 |---|---|
-| Package | [![PyPI Latest Release](https://img.shields.io/pypi/v/homoppi.svg)](https://pypi.org/project/homoppi/) [![Python versions](https://img.shields.io/pypi/pyversions/homoppi.svg)](https://pypi.org/project/homoppi/) [![PyPI Downloads](https://img.shields.io/pypi/dm/homoppi.svg)](https://pypi.org/project/homoppi/) |
+| Package | [![PyPI Latest Release](https://img.shields.io/pypi/v/homoppi)](https://pypi.org/project/homoppi/) [![Python versions](https://img.shields.io/pypi/pyversions/homoppi)](https://pypi.org/project/homoppi/) [![PyPI Downloads](https://img.shields.io/pypi/dm/homoppi)](https://pypi.org/project/homoppi/) |
 | Meta | [![License - MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) |
 
 ## 🧬 What is it?
