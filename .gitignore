@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+.coverage
+
+# Editors
+.idea/
+.vscode/
+.DS_Store
+
+# Local runs / databases (never commit data)
+runs/
+db/
+*.fasta.gz
+
+# Banner source (only the rendered PNG is committed)
+docs/assets/*.svg
