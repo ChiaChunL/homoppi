@@ -5,9 +5,14 @@ on:
     branches: [main]
   pull_request:
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     strategy:
       matrix:
         python-version: ["3.11", "3.12", "3.13"]
@@ -17,7 +22,19 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install BLAST+ and HMMER
-        run: sudo apt-get update && sudo apt-get install -y ncbi-blast+ hmmer
+        timeout-minutes: 10
+        # apt on hosted runners occasionally hangs on a stuck mirror; bound
+        # each attempt and retry instead of stalling the whole job.
+        run: |
+          for attempt in 1 2 3; do
+            if sudo timeout 240 apt-get update -o Acquire::Retries=3 \
+               && sudo timeout 240 apt-get install -y --no-install-recommends ncbi-blast+ hmmer; then
+              break
+            fi
+            echo "apt attempt ${attempt} failed; retrying"
+            sleep 15
+          done
+          which blastp makeblastdb hmmscan hmmbuild hmmpress
       - name: Install package
         run: pip install -e ".[dev]"
       - name: Lint
